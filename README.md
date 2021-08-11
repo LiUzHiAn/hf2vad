@@ -1,7 +1,6 @@
 ## HF2-VAD
 Offcial implementation of "A Hybrid Video Anomaly Detection Framework via
-Memory-Augmented Flow Reconstruction and Flow-Guided Frame Prediction, ICCV-2021" by
-Zhian Liu, Yongwei Nie, Chengjiang Long, Qing Li, Guiqing Li.
+Memory-Augmented Flow Reconstruction and Flow-Guided Frame Prediction, ICCV-2021"
 
 ## Citation
 If you find this repo useful, please consider citing:
