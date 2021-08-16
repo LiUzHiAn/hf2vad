@@ -1,0 +1,37 @@
+model_paras:
+  motion_channels: 2
+  num_flows: 1
+  num_slots: 2000
+  shrink_thres: 0.0005
+  feature_root: 32
+  skip_conn: True
+  mem_usage: [ False, True, True, True ]
+  skip_ops: [ "none", "concat", "concat" ]
+
+# exp settings
+dataset_base_dir: ./data
+dataset_name: ped2
+exp_name: ped2_ML_MemAE_SC
+ckpt_root: ./ckpt
+log_root: ./log
+eval_root: ./eval
+device: cuda:0
+
+pretrained: False
+model_savename: model.pth
+# num of iterations to log
+logevery: 100
+
+# num of epoch to save models
+saveevery: 1
+
+# training setting
+num_epochs: 50
+batchsize: 256
+lr: 0.0001
+num_workers: 8
+lam_sparse: 0.0002
+lam_recon: 1.0
+
+
+

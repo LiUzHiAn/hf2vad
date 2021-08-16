@@ -1,0 +1,57 @@
+model_paras:
+  final_act: False
+  nf_max: 128
+  nf_start: 64
+  spatial_size: 32
+  dropout_prob: 0.1
+  img_channels: 3
+  motion_channels: 2
+  clip_hist: 4
+  clip_pred: 1
+  num_flows: 4
+  # ML-MemAE-SC
+  feature_root: 32
+  num_slots: 2000
+  shrink_thres: 0.0005
+  mem_usage: [ False, True, True, True ]
+  skip_ops: [ "none", "concat", "concat" ]
+
+device: cuda:0
+dataset_base_dir: ./data
+dataset_name: ped2
+exp_name: ped2_ML_MemAE_SC_CVAE
+ckpt_root: ./ckpt
+log_root: ./log
+eval_root: ./eval
+
+ML_MemAE_SC_pretrained: ./ckpt/ped2_ML_MemAE_SC/best.pth
+pretrained: False
+model_savename: model.pth
+# num of iterations to log
+logevery: 100
+
+# num of epoch to save models
+saveevery: 1
+
+# training setting
+num_epochs: 80
+batchsize: 128
+lr: 0.0001
+num_workers: 8
+# alpha for gradient loss
+alpha: 1
+# use L1 or L2 recon loss
+intensity_loss_norm: 2
+# lambda for frame intensity loss
+lam_frame: 1.0
+# lambda for kl loss
+lam_kl: 1.0
+# lambda for gradient loss
+lam_grad: 1.0
+
+w_r: 1.0
+w_p: 0.1
+
+
+
+
