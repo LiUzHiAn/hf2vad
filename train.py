@@ -77,7 +77,7 @@ def train(config, training_chunked_samples_dir, testing_chunked_samples_file):
     for epoch in range(epoch_last, epochs + epoch_last):
         for chunk_file_idx, chunk_file in enumerate(training_chunk_samples_files):
             dataset = Chunked_sample_dataset(os.path.join(training_chunked_samples_dir, chunk_file))
-            dataloader = DataLoader(dataset=dataset, batch_size=batch_size, num_workers=0, shuffle=True)
+            dataloader = DataLoader(dataset=dataset, batch_size=batch_size, num_workers=num_workers, shuffle=True)
             for idx, train_data in tqdm(enumerate(dataloader),
                                         desc="Training Epoch %d, Chunked File %d" % (epoch + 1, chunk_file_idx),
                                         total=len(dataloader)):

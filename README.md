@@ -2,6 +2,8 @@
 Offcial implementation of "A Hybrid Video Anomaly Detection Framework via
 Memory-Augmented Flow Reconstruction and Flow-Guided Frame Prediction, ICCV-2021".
 
+[\[Paper\]](./assets/HF2_VAD_ICCV21_CR.pdf) 
+[\[Supp\]](./assets/HF2_VAD_ICCV21_Supp_CR.pdf)
 [\[arXiv\]](#)
 
 ![pipeline](./assets/fig2-CR.png)

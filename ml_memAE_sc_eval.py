@@ -69,7 +69,7 @@ def evaluate(config, ckpt_path, testing_chunked_samples_file, suffix):
     score_func = nn.MSELoss(reduction="none")
 
     dataset_test = Chunked_sample_dataset(testing_chunked_samples_file, last_flow=True)
-    dataloader_test = DataLoader(dataset=dataset_test, batch_size=128, num_workers=0, shuffle=False)
+    dataloader_test = DataLoader(dataset=dataset_test, batch_size=128, num_workers=num_workers, shuffle=False)
 
     # bbox anomaly scores for each frame
     frame_bbox_scores = [{} for i in range(testset_num_frames.item())]

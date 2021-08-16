@@ -518,7 +518,7 @@ class shanghaiTech_dataset(Dataset):
                 self.frame_video_idx += [idx] * self.videos[video_name]['length']
                 idx += 1
                 self.save_scene_idx += [int(video_name[:2])] * len(
-                    self.videos[video_name]['frame'])  # 原始数据中对应的scene idx
+                    self.videos[video_name]['frame'])  # scene idx
                 self.scene_idx += [1] * len(self.videos[video_name]['frame'])  # frames are processed by scene idx
 
             self.scene_num = len(set(self.scene_idx))
@@ -528,7 +528,7 @@ class shanghaiTech_dataset(Dataset):
             self.tot_frame_num = len(self.all_frame_addr)
 
         elif self.mode == 'test':
-            idx = 1  # 视频idx
+            idx = 1  # video idx
             video_dir_list = glob.glob(os.path.join(data_dir, '*'))
 
             for video in sorted(video_dir_list):
