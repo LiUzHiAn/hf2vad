@@ -3,33 +3,8 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 # plt.switch_backend('agg')
-
-
-def visualize_pair(batch_1, batch_2):
-    if len(batch_1.shape) == 4:
-        if batch_1.shape[3] == 2:
-            batch_1 = [flow2img(batch_1[i]) for i in range(batch_1.shape[0])]
-        else:
-            batch_1 = [batch_1[i] for i in range(batch_1.shape[0])]
-        if batch_2.shape[3] == 2:
-            batch_2 = [flow2img(batch_2[i]) for i in range(batch_2.shape[0])]
-        else:
-            batch_2 = [batch_2[i] for i in range(batch_2.shape[0])]
-        cv2.imshow('Pair comparison', np.vstack([np.hstack(batch_1), np.hstack(batch_2)]))
-        cv2.waitKey(0)
-    else:
-        if batch_1.shape[4] == 2:
-            batch_1 = [flow2img(batch_1[-1][i]) for i in range(batch_1[-1].shape[0])]
-        else:
-            batch_1 = [batch_1[-1][i] for i in range(batch_1[-1].shape[0])]
-        if batch_2.shape[4] == 2:
-            batch_2 = [flow2img(batch_2[-1][i]) for i in range(batch_2[-1].shape[0])]
-        else:
-            batch_2 = [batch_2[-1][i] for i in range(batch_2[-1].shape[0])]
-        cv2.imshow('Pair comparison', np.vstack([np.hstack(batch_1), np.hstack(batch_2)]))
-        cv2.waitKey(0)
-
 
 def visualize_sequences(batch, seq_len, return_fig=True):
     """

@@ -15,7 +15,6 @@ def draw_roc_curve(fpr, tpr, auc, psnr_dir):
     plt.ylabel('True Positive Rate')
     plt.title('Receiver operating characteristic example')
     plt.legend(loc="lower right")
-    # plt.show()
 
     plt.savefig(os.path.join(psnr_dir, "auc.png"))
     plt.close()
@@ -62,10 +61,6 @@ def save_evaluation_curves(scores, labels, curves_save_path, video_frame_nums):
         scores_each_video[video_id] = signal.medfilt(scores_each_video[video_id], kernel_size=17)
         labels_each_video[video_id] = labels[start_idx:start_idx + video_frame_nums[video_id]]
 
-        # # TODO: 每个视频归一化
-        # scores_each_video[video_id] -= np.min(scores_each_video[video_id])
-        # scores_each_video[video_id] /= np.max(scores_each_video[video_id])
-
         start_idx += video_frame_nums[video_id]
 
     truth = []
@@ -99,7 +94,6 @@ def save_evaluation_curves(scores, labels, curves_save_path, video_frame_nums):
         plt.xlabel('Frames Sequence')
         plt.title('Test video #%d' % (i + 1))
         plt.legend(loc="upper left")
-        # plt.show(block=False)
         plt.savefig(os.path.join(curves_save_path, "anomaly_curve_%d.png" % (i + 1)))
         plt.close()
 

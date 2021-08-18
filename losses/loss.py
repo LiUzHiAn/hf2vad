@@ -3,11 +3,6 @@ import torch.nn as nn
 
 
 def latent_kl(prior_mean, posterior_mean):
-    """
-    :param prior_mean:
-    :param posterior_mean:
-    :return:
-    """
     kl = 0.5 * torch.pow(prior_mean - posterior_mean, 2)
     kl = torch.sum(kl, dim=[1, 2, 3])
 
