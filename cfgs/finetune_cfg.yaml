@@ -14,8 +14,8 @@ model_paras:
   feature_root: 32
   num_slots: 2000
   shrink_thres: 0.0005
-  mem_usage: [ False, False, False, True ]
-  skip_ops: [ "none", "none", "none" ]
+  mem_usage: [ False, True, True, True ]
+  skip_ops: [ "none", "concat", "concat" ]
 
 device: cuda:0
 dataset_base_dir: ./data
