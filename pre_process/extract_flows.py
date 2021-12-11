@@ -9,8 +9,8 @@ from torch.utils.data import DataLoader
 from datasets.dataset import get_dataset
 from pre_process.flownet_networks.flownet2_models import FlowNet2
 
-FLOWNET_INPUT_WIDTH = {"ped2": 512 * 2, "avenue": 512, "shanghaitech": 1024}
-FLOWNET_INPUT_HEIGHT = {"ped2": 384 * 2, "avenue": 384, "shanghaitech": 640}
+FLOWNET_INPUT_WIDTH = {"ped2": 512 * 2, "avenue": 512 * 2, "shanghaitech": 1024}
+FLOWNET_INPUT_HEIGHT = {"ped2": 384 * 2, "avenue": 384 * 2, "shanghaitech": 640}
 
 
 def extracting_flows(dataset, dataset_name, of_save_dir):

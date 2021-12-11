@@ -682,7 +682,7 @@ def get_dataset(dataset_name, dir, mode='train', context_frame_num=0, border_mod
         dataset = avenue_dataset(dir=dir, context_frame_num=context_frame_num, mode=mode, border_mode=border_mode,
                                  all_bboxes=all_bboxes, patch_size=patch_size, file_format=img_ext,
                                  of_dataset=of_dataset)
-    elif dataset_name == 'shanghaiTech':
+    elif dataset_name == 'shanghaitech':
         dataset = shanghaiTech_dataset(dir=dir, context_frame_num=context_frame_num, mode=mode, border_mode=border_mode,
                                        all_bboxes=all_bboxes, patch_size=patch_size, file_format=img_ext,
                                        of_dataset=of_dataset)

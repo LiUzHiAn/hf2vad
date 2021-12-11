@@ -5,7 +5,9 @@ Here we use the `ped2` dataset as example.
 
 Download the [video anomaly detection dataset](http://101.32.75.151:8181/dataset/) and place it into 
 the `data` directory of this project. In order to evaluate the frame-level AUC, we provide the 
-frame labels of each test video in `data/ped2/ground_truth_demo/gt_label.json`   
+frame labels of each test video in `data/ped2/ground_truth_demo/gt_label.json`. 
+
+> For the Avenue and ShanghaiTech datasets, please check the last section in this page.   
 
 The file structure should be similar as follows:
 ```python
@@ -297,3 +299,25 @@ After finishing the steps above, your dataset file structure should be similar a
             └── Train016
 ```
 The above steps also support Avenue and ShanghaiTech datasets. (May consume large disk space)
+
+### Notice
+
+- Avenue
+
+For the [Avenue](http://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html) dataset, 
+as explained in the dataset specifications, a few outliers are included in the training data. 
+For instance, someone is running from 771-st frame to 831-st frame of training video 02, 
+while running is treated as an abnormal event in test data. 
+Considering that, we exclude frames contains such obvious anomalies from the training set. 
+Specifically, they are 311-521(wrong direction) and 771-831(running) frames of training video 02,
+1460-1510(wrong direction) frames of training video 04 and 741-900(wrong direction) frames of training video 07.
+
+For simplicity, we cut the original training into two or three small videos if possible, obtaining 19 training videos in total(we call it Avenue19). 
+One can download the Avenue19 [here](https://drive.google.com/file/d/1ygBf-Pbhbh1uWoBnGdirEcU6htfhMb-l/view?usp=sharing) directly. We strictly obey the original official ground-truth test labels in all our experiments.
+
+> You still have to estimate the optical flows for yourself, since the disk space they cost makes it difficult to share.
+
+- ShanghaiTech
+
+For the [ShanghaiTech](https://svip-lab.github.io/dataset/campus_dataset.html) dataset, it only contains raw videos as the training data.
+One can use ffmpeg tools to extract the frames, such as `ffmpeg -i <video_name> -qscale:v 1 -qmin 1 <video_name/%04d.jpg>`. The test frames are provided already.
