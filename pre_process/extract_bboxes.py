@@ -11,9 +11,9 @@ torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.enabled = True
 
 DATASET_CFGS = {
-    "ped2": {"conf_thr": 0.5, "min_area": 10 * 10, "cover_thr": 0.6, "binary_thr": 18, "gauss_mask_size": 3},
-    "avenue": {"conf_thr": 0.25, "min_area": 40 * 40, "cover_thr": 0.6, "binary_thr": 18, "gauss_mask_size": 5},
-    "shanghaitech": {"conf_thr": 0.5, "min_area": 40 * 40, "cover_thr": 0.65, "binary_thr": 15, "gauss_mask_size": 5}
+    "ped2": {"conf_thr": 0.5, "min_area": 10 * 10, "cover_thr": 0.6, "binary_thr": 18, "gauss_mask_size": 3, 'contour_min_area': 10 * 10},
+    "avenue": {"conf_thr": 0.25, "min_area": 40 * 40, "cover_thr": 0.6, "binary_thr": 18, "gauss_mask_size": 5, 'contour_min_area': 40 * 40},
+    "our_shanghaitech": {"conf_thr": 0.5, "min_area": 8 * 8, "cover_thr": 0.65, "binary_thr": 15, "gauss_mask_size": 5, 'contour_min_area': 40 * 40}
 }
 
 
@@ -73,7 +73,7 @@ def delCoverBboxes(bboxes, dataset_name):
 
 
 def getFgBboxes(cur_img, img_batch, bboxes, dataset_name):
-    area_thr = DATASET_CFGS[dataset_name]["min_area"]
+    area_thr = DATASET_CFGS[dataset_name]["contour_min_area"]
     binary_thr = DATASET_CFGS[dataset_name]["binary_thr"]
     gauss_mask_size = DATASET_CFGS[dataset_name]["gauss_mask_size"]
     extend = 2
